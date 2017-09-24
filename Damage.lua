@@ -1,5 +1,4 @@
 Usage:
-local target = GetCurrentTarget()
 local damage = getdmg("R",target,source,3)
 -------------------------------------------------------
 Full function:

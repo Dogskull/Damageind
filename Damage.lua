@@ -1,4 +1,20 @@
+if DamageLibVersion then return end
+
+DamageLibVersion = 0.49
+
+if GetUser() ~= "Deftsu" then GetWebResultAsync("https://raw.githubusercontent.com/Dogskull/Damageind/master/Damage.version", 
+  function(data)
+    if tonumber(data) > DamageLibVersion then
+      DownloadFileAsync("https://raw.githubusercontent.com/Dogskull/Damageind/master/Damage.lua", COMMON_PATH .. "DamageLib.lua", function() print("Updated DamageLib For "..GetGameVersion():sub(1,4)..", Please press F6 twice to reload.") return end)
+    end
+  end) 
+end
+
+--[[
+It's designed to calculate the damage of the skills to champions, although most of the calculations work for creeps.
+-------------------------------------------------------
 Usage:
+local target = GetCurrentTarget()
 local damage = getdmg("R",target,source,3)
 -------------------------------------------------------
 Full function:
